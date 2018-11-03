@@ -1,13 +1,18 @@
-package com.clothing.manage.dao;
+package com.clothing.manage.service;
 
 import com.clothing.manage.model.ProductParam;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 
-@Repository
-public interface ProductParamMapper {
+/**
+ * 描述:
+ * 商品规格参数
+ *
+ * @author partner
+ * @create 2018-11-03 17:17
+ */
+public interface ProductParamService {
     int deleteByPrimaryKey(Integer id);
 
     int insert(ProductParam record);

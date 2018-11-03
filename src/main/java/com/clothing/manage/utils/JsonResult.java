@@ -18,8 +18,8 @@ public class JsonResult {
 
     public JsonResult() {
         this.code = ResultCode.SUCCESS;
-        this.message = ResultCode.SUCCESS.msg();
-        this.httpCode = ResultCode.SUCCESS.val();
+        this.message = ResultCode.SUCCESS.getStatusStr();
+        this.httpCode = ResultCode.SUCCESS.getStatusCode();
         this.data = null;
     }
 

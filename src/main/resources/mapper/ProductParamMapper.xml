@@ -18,6 +18,13 @@
     from b_product_param
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectProductParamByProductId"  parameterType="java.lang.Integer" resultType="java.util.Map">
+    SELECT pp.*,sc.`name` as standardColorName,ss.`name` as standardSizeName
+    FROM b_product_param pp
+    LEFT JOIN b_standard_color sc on pp.standard_color_id = sc.id
+    LEFT JOIN b_standard_size ss on pp.standard_size_id = ss.id
+    WHERE product_id =#{productId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from b_product_param
     where id = #{id,jdbcType=INTEGER}

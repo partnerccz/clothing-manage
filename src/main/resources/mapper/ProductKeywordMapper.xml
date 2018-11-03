@@ -16,6 +16,14 @@
     from b_product_keyword
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectProductKeywordByProductId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+      *
+    FROM
+      b_product_keyword
+    WHERE
+      product_id = #{productId}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from b_product_keyword
     where id = #{id,jdbcType=INTEGER}

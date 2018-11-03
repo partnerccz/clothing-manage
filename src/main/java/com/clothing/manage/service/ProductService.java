@@ -21,7 +21,7 @@ public interface ProductService {
 
     int insertSelective(Product record);
 
-    Product selectByPrimaryKey(Integer id);
+    Map selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Product record);
 
@@ -33,4 +33,14 @@ public interface ProductService {
      * @return
      */
     Page<Map> getProductsByPage(ProductExtension productExtension);
+
+    /**
+     * 添加商品
+     * @param product
+     * @param keywords
+     * @param colorSize
+     * @param imgs
+     * @return
+     */
+    Integer saveProduct(Product product, String[] keywords, String[] colorSize, String[] imgs);
 }

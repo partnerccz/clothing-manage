@@ -50,19 +50,19 @@ public enum ResultCode {
     DML_ERROR(500,"执行数据操作失败"),
     ;
 
-    private ResultCode(Integer value, String msg){
-        this.val = value;
-        this.msg = msg;
+    ResultCode(Integer statusCode, String statusStr) {
+        this.statusCode = statusCode;
+        this.statusStr = statusStr;
     }
 
-    public Integer val() {
-        return val;
+    private Integer statusCode;
+    private String statusStr;
+
+    public Integer getStatusCode() {
+        return statusCode;
     }
 
-    public String msg() {
-        return msg;
+    public String getStatusStr() {
+        return statusStr;
     }
-
-    private Integer val;
-    private String msg;
 }
