@@ -21,6 +21,18 @@
     FROM
         b_standard_color
   </select>
+  <select id="getStandardColorsByPage" resultType="java.util.Map">
+    SELECT *
+    FROM b_standard_color
+    WHERE 1=1
+    ${strWhere}
+  </select>
+  <delete id="delStandardColor">
+    DELETE FROM b_standard_color WHERE id in
+    <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from b_standard_color
     where id = #{id,jdbcType=INTEGER}

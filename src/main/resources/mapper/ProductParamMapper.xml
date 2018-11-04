@@ -25,6 +25,9 @@
     LEFT JOIN b_standard_size ss on pp.standard_size_id = ss.id
     WHERE product_id =#{productId}
   </select>
+  <delete id="delProductParamByProductId" parameterType="java.lang.Integer" >
+    DELETE FROM b_product_param WHERE product_id = #{id,jdbcType=INTEGER}
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from b_product_param
     where id = #{id,jdbcType=INTEGER}

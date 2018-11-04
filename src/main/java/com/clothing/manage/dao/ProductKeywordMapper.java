@@ -25,4 +25,13 @@ public interface ProductKeywordMapper {
      * @return
      */
     List<ProductKeyword> selectProductKeywordByProductId(Integer productId);
+
+    List<ProductKeyword> getProductKeywordByIds(List<Integer> ids);
+
+    /**
+     * 根据商品Id删除商品关键词搜索数据
+     * @param productId 商品ID
+     * @return
+     */
+    int delProductKeywordByProductId(Integer productId);
 }

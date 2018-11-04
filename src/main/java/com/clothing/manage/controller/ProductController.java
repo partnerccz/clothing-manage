@@ -76,6 +76,7 @@ public class ProductController {
             if (product == null) {
                 return new JsonResult(ResultCode.PARAMS_ERROR, "商品不能为空！", ResultCode.PARAMS_ERROR.getStatusCode());
             }
+            // 如果商品ID为空，则执行添加操作
             if (product.getId() == null) {
                 Integer insert  = productService.saveProduct(product, keywords, colorSize, imgs);
                 if(insert>0){
@@ -84,9 +85,14 @@ public class ProductController {
                     return new JsonResult(ResultCode.FAIL, "添加商品失败！", ResultCode.FAIL.getStatusCode());
                 }
             }else{
-
+                // 执行修改操作
+                Integer updateCount = productService.updateProduct(product, keywords, colorSize, imgs);
+                if (updateCount > 0) {
+                    return new JsonResult();
+                }else{
+                    return new JsonResult(ResultCode.FAIL, "修改商品失败！", ResultCode.FAIL.getStatusCode());
+                }
             }
-            return new JsonResult();
         } catch (DMLException e){
             log.error("【添加商品】 异常信息={}", e.getMessage());
             return new JsonResult(ResultCode.FAIL, e.getMessage(), ResultCode.FAIL.getStatusCode());

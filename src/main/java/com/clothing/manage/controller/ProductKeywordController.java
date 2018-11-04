@@ -1,8 +1,11 @@
 package com.clothing.manage.controller;
 
+import com.clothing.manage.dao.ProductKeywordMapper;
 import com.clothing.manage.model.ProductKeyword;
 import com.clothing.manage.service.ProductKeywordService;
+import io.swagger.models.auth.In;
 import lombok.extern.slf4j.Slf4j;
+import net.sf.jsqlparser.statement.select.First;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +28,9 @@ public class ProductKeywordController {
 
     @Autowired
     private ProductKeywordService productKeywordService;
+
+    @Autowired
+    private ProductKeywordMapper productKeywordMapper;
 
     /**
      * 获取关键词
@@ -63,5 +69,15 @@ public class ProductKeywordController {
             log.error("【获取商品关键词】 异常信息={}", e.getMessage());
             return new ArrayList<>();
         }
+    }
+
+    @GetMapping("/getTest")
+    public List<ProductKeyword> getTest(Integer id1, Integer id2, Integer id3) {
+        List<Integer> list = new ArrayList<>();
+        list.add(id1);
+        list.add(id2);
+        list.add(id3);
+        List<ProductKeyword> productKeywordByIds = productKeywordMapper.getProductKeywordByIds(list);
+        return productKeywordByIds;
     }
 }

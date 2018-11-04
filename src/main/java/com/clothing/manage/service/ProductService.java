@@ -43,4 +43,14 @@ public interface ProductService {
      * @return
      */
     Integer saveProduct(Product product, String[] keywords, String[] colorSize, String[] imgs);
+
+    /**
+     * 修改商品
+     * @param product
+     * @param keywords
+     * @param colorSize
+     * @param imgs
+     * @return
+     */
+    Integer updateProduct(Product product, String[] keywords, String[] colorSize, String[] imgs);
 }

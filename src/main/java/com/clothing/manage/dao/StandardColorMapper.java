@@ -1,6 +1,7 @@
 package com.clothing.manage.dao;
 
 import com.clothing.manage.model.StandardColor;
+import com.github.pagehelper.Page;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,4 +26,19 @@ public interface StandardColorMapper {
      * @return
      */
     List<Map> getStandardColors();
+
+    /**
+     * 分页获取颜色规格
+     *
+     * @param map
+     * @return
+     */
+    Page<Map> getStandardColorsByPage(Map map);
+
+    /**
+     * 根据Id删除颜色规格
+     * @param list
+     * @return
+     */
+    int delStandardColor(List<Integer> list);
 }

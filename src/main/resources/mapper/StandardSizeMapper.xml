@@ -22,6 +22,18 @@
     FROM
         b_standard_size
   </select>
+  <select id="getStandardSizesByPage" resultType="java.util.Map">
+    SELECT *
+    FROM b_standard_size
+    WHERE 1=1
+    ${strWhere}
+  </select>
+  <delete id="delStandardSize">
+    DELETE FROM b_standard_size WHERE id in
+    <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </delete>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from b_standard_size
     where id = #{id,jdbcType=INTEGER}

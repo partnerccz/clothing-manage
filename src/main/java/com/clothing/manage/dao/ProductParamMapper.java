@@ -26,4 +26,11 @@ public interface ProductParamMapper {
      * @return
      */
     List<Map> selectProductParamByProductId(Integer productId);
+
+    /**
+     * 根据商品ID商户商品规格参数
+     * @param productId
+     * @return
+     */
+    int delProductParamByProductId(Integer productId);
 }

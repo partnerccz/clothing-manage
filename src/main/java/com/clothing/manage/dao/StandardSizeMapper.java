@@ -1,6 +1,7 @@
 package com.clothing.manage.dao;
 
 import com.clothing.manage.model.StandardSize;
+import com.github.pagehelper.Page;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -25,4 +26,18 @@ public interface StandardSizeMapper {
      * @return
      */
     List<Map> getStandardSizes();
+
+    /**
+     * 分页查询商品规格大小
+     * @param map
+     * @return
+     */
+    Page<Map> getStandardSizesByPage(Map map);
+
+    /**
+     * 批量删除商品规格大小
+     * @param list
+     * @return
+     */
+    int delStandardSize(List<Integer> list);
 }

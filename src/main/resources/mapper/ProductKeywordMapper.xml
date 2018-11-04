@@ -24,6 +24,17 @@
     WHERE
       product_id = #{productId}
   </select>
+  <select id="getProductKeywordByIds" resultType="java.util.Map">
+    SELECT * FROM b_product_keyword where  id in
+    <foreach collection="list" item="id" index="index" open="(" close=")" separator=",">
+      #{id}
+    </foreach>
+  </select>
+
+  <delete id="delProductKeywordByProductId" parameterType="java.lang.Integer">
+    DELETE FROM b_product_keyword WHERE product_id = #{id,jdbcType=INTEGER}
+  </delete>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from b_product_keyword
     where id = #{id,jdbcType=INTEGER}
